@@ -1,0 +1,43 @@
+.ls-hidden {
+    display: none;
+}
+.ls-add-item {
+    background-color: #fafafa;
+}
+.ls-background-red {
+    background: rgba(255, 0, 0, 0.05);
+}
+.ls-red {
+    fill: red;
+    color: red;
+}
+.ls-background-green {
+    background: rgba(0, 255, 0, 0.05);
+}
+.ls-green {
+    fill: green;
+    color: green;
+}
+.ls-background-blue {
+    background: rgba(0, 0, 255, 0.05);
+}
+.ls-blue {
+    fill: blue;
+    color: blue;
+}
+.ls-background-white {
+    background: rgba(255, 255, 255, 1);
+}
+.ls-disabled {
+    background-color: rgba(0, 0, 0, 0.27);
+    color: rgba(0, 0, 0, 0.47);
+}
+.ls-active {
+    background-color: rgba(158, 158, 158, 0.2);
+}
+.ls-hidden {
+    display: none;
+}
+.ls-user-stories {
+    width: 480px;
+}

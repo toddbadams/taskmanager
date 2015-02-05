@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html data-ng-app="ls">
+
+<head>
+    <title>Simple Task Manager</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/src/basecss/base.css">
+    <link rel="stylesheet" href="/src/tasks/task.css">
+</head>
+
+<body ng-controller="page">
+    <md-toolbar class="md-primary" nd-scroll-shrink="true">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleUserStories()">User Stories</md-button>
+        </div>
+    </md-toolbar>
+    <md-content layout="row">
+        <md-sidenav class="md-sidenav-left ls-user-stories" md-component-id="left">
+            <header id="header">
+                <h1>Task Manager</h1>
+            </header>
+            <p>As a user, I want to add a task, so added tasks are displayed in a list.</p>
+            <ul>
+                <li>The task will indicate the date of creation.</li>
+                <li>The user can view the "add a task" widget at all times.</li>
+                <li>The user can clear the added description in the "add a task" at anytime before saving the task.</li>
+                <li>The task description can be up to 512 characters.</li>
+                <li>A character count is visible while typing to indicate character count versus maximum character count.</li>
+                <li>A progress indicator is displayed while adding the task with the server.</li>
+            </ul>
+
+            <p>As a user, I want an action menu on each task so that I can interact with the task.</p>
+            <ul>
+                <li>The menu slides out of the side of the task when the action menu button is pressed.</li>
+                <li>The menu hides itself when selecting any of the action items, or other task buttons.</li>
+            </ul>
+
+            <p>As a user, I want to edit a task description so that the task list is flexible.</p>
+            <ul>
+                <li>The edit view is presented through an action menu on each task.</li>
+                <li>The total character count and current count is displayed while editing.</li>
+                <li>The editor does not allow the description to be too long.</li>
+                <li>The editor requires a description of at least one character.</li>
+                <li>The user can cancel the operation returning to the unedited version.</li>
+                <li>The task description can be up to 512 characters.</li>
+                <li>A character count is visible while typing to indicate character count versus maximum character count.</li>
+                <li>A progress indicator is displayed while updating the task with the server.</li>
+            </ul>
+
+            <p>As a user, I want to delete a task so that unnecessary tasks are removed.</p>
+            <ul>
+                <li>A delete confirmation message is presented through the action menu.</li>
+                <li>The delete confirmation message is displayed as a dialog, greying out everything in the background.</li>
+                <li>The delete confirmation message provides two options: confirm delete, and cancel.</li>
+                <li>A progress indicator is displayed while deleting the task from the server.</li>
+            </ul>
+
+            <p>As a user, I want to have the ability to differentiate my tasks by color.</p>
+            <ul>
+                <li>Each task can select red, green, or blue from the task's action menu.</li>
+                <li>Choosing a color shades the task, repeating the same color choice removes the shading.</li>
+            </ul>
+
+            <p>As a user, I want to mark my tasks as complete or incomplete, so that I and others can view status.</p>
+            <ul>
+                <li>A box at the head of the task will indicate complete or incomplete status</li>
+                <li>Clicking the box toggles the complete/incomplete status.</li>
+                <li>Date of completion is added to the task when completed.</li>
+            </ul>
+        </md-sidenav>
+        <ls-tasks></ls-tasks>
+    </md-content>
+    <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/chance/chance.js"></script>
+    <script src="/bower_components/hammerjs/hammer.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/src/app.js"></script>
+    <script src="/src/models/models_base-service.js"></script>
+    <script src="/src/models/models_date-service.js"></script>
+    <script src="/src/tasks/task-directive.js"></script>
+    <script src="/src/tasks/task_model_factory.js"></script>
+    <script src="/src/tasks/tasks-service-fake.js"></script>
+    <script src="/src/users/user_action-service.js"></script>
+    <script src="/src/users/user_action_cache-service.js"></script>
+    <script src="/src/users/user_action_model_factory.js"></script>
+    <script>
+    angular.module('ls').controller('page', pageController);
+    pageController.$inject = ['$scope', '$mdSidenav'];
+
+    function pageController($scope, $mdSidenav) {
+        $scope.toggleUserStories = function() {
+            $mdSidenav('left').toggle();
+        }
+    }
+    </script>
+</body>
+
+</html>
